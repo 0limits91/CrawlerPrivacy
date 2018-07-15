@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <!-- Meta Tag -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS caricamento Bootstrap da CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <title>CrawlerPrivacy</title>
+  </head>
+  <body>
+    <div class="container-flex">
+      <h1 class="text-center">Esempi di Testo Nascosto ai Crawler</h1>
+      <!-- prima tipologia: testo nascosto non mostrato a video esplicitamente  -->
+      <div class="d-inline-flex p-3">
+        <label for="contatto-nascosto">Tipologia 1</p>
+          <a id="contattami-mail" class="btn btn-light" href="#" data-secret="SW52aWFtaSB1bmEgTWFpbA=="></a>
+      </div>
+
+      <!-- seconda tipologia: testo nascosto mostrato a video esplicitamente  -->
+      <div class="d-inline-flex p-3">
+        <label for="contattami-telefono">Tipologia 2</p>
+        <a class="btn btn-light" id="contattami-telefono" href="#" data-secret="KzM5IDAwMDAwMDAwMDA="></a>
+      </div>
+
+      <!-- terza tipologia: testo nascosto mostrato a video esplicitamente in componenti generici -->
+      <div class="d-inline-flex p-3">
+        <label for="testo-componente">Tipologia 3</p>
+        <p id="testo-componente" data-secret="UXVlc3RvIHRlc3RvIG5vbiB2aWVuZSB2aXN1YWxpenphdG8gZGFpIENyYXdsZXI"></p>
+      </div>
+
+    </div>
+
+    <!-- caricamento libreria Jquery per la successiva lettura dei dati nascosti -->
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script>$(window).load(function(){var contact = document.getElementById("contattami-mail");contact.textContent = atob(contact.dataset.secret);contact.href = atob("bWFpbHRvOm1haWxAZG9tLml0")});</script>
+    <script>$(window).load(function(){var contact = document.getElementById("contattami-telefono");contact.textContent = atob(contact.dataset.secret);contact.href = atob("dGVsOg==") + atob(contact.dataset.secret);});</script>
+    <script>$(window).load(function(){var contact = document.getElementById("testo-componente");contact.textContent = atob(contact.dataset.secret);});</script>
+
+  </body>
+</html>
